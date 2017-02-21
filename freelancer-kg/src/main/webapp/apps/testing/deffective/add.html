@@ -1,0 +1,103 @@
+<div ng-controller="DeffectiveAddCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Добавить Поврежденных</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="create()">
+				          	
+						<div class="row">
+						    <div class="col-sm-9">
+					              <div class="form-group">
+						          	<label class="col-lg-3 control-label">Order stage</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="deffective.orderStage.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="order_stage in order_stages" ng-value="order_stage.id">{{order_stage.order.name+' - '+order_stage.orderStatus.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+					            
+					              <div class="form-group">
+						          	<label class="col-lg-3 control-label">Model</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="deffective.model.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="model in models" ng-value="model.id">{{model.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+						            <div class="form-group">
+						          	<label class="col-xs-3 control-label">Color</label>
+						            <div class="col-lg-9" > 
+						              <select  ng-model="deffective.color.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="color in colors" ng-value="color.id">{{color.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+						                <div class="form-group">
+						          	<label class="col-lg-3 control-label">Size</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="deffective.size.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="size in sizes" ng-value="size.id">{{size.size}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+					            <div class="form-group">
+						          	<label class="col-lg-3 control-label">Created by</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="deffective.createdBy.id" class="form-control" required select>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="staff in staffies" ng-value="staff.id">{{staff.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         <div class="form-group">
+						          	<label class="col-lg-3 control-label">Deffected by</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="deffective.deffectedBy.id" class="form-control" required select>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="staff in staffies" ng-value="staff.id">{{staff.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         <div class="form-group">
+					              <label class="col-lg-3 control-label">Quantity</label>
+					              <div class="col-lg-9">
+					                <input type="textarea" placeholder="" class="form-control" ng-model="deffective.quantity" required>
+					              </div>
+					            </div>
+						          <div class="form-group">
+					              <label class="col-lg-3 control-label">Описание</label>
+					              <div class="col-lg-9">
+					                <input type="textarea" placeholder="" class="form-control" ng-model="deffective.description" required>
+					              </div>
+					            </div>
+
+				            <div class="form-group">
+					            <label class="col-lg-3 control-label"></label>
+					              <div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+					              </div>
+					        </div>						          	
+						    </div>				    
+						    </div>
+						    
+				          </form>
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

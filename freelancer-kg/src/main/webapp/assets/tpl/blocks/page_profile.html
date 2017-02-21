@@ -1,0 +1,90 @@
+<div ng-controller="ProfileCtrl">
+<div class="wrapper-md ng-binding">
+<div class="row">
+  <div class="col-lg-6">
+    <div style="background:url(../../assets/img/c4.jpg) center center; background-size:cover">
+      <div class="wrapper-lg bg-white-opacity">
+        <div class="row m-t">
+          <div class="col-sm-7">
+            <a href class="thumb-lg pull-left m-r">
+              <img src="../../assets/img/a0.jpg" class="img-circle">
+            </a>
+            <div class="clear">
+              <div class="m-b m-t-sm">
+                <span class="h3 text-black">{{userInfo.name + ' ' + userInfo.surname}}</span>
+                <small>{{userInfo.position.name + ', ' + userInfo.cashbox.name}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper bg-white b-b">
+    </div>
+  </div>
+  <div class="col-lg-6">
+  <div class="panel panel-default">
+      <div class="panel-heading font-bold">Информация о пользователе</div>
+       <div class="panel-body">
+  	<table class="table table-striped m-b-none">
+  		<tr>
+  			<td><b>ФИ:</b></td>
+  			<td>{{userInfo.name + ' ' + userInfo.surname}}</td>
+  		</tr>
+  		<tr>
+  			<td><b>Должность:</b></td>
+  			<td>{{userInfo.position.name}}</td>
+  		</tr>
+  		<tr>
+  			<td><b>Касса:</b></td>
+  			<td>{{userInfo.cashbox.name}}</td>
+  		</tr>
+  		<tr>
+  			<td><b>Паспорт:</b></td>
+  			<td>{{userInfo.passport}}</td>
+  		</tr>
+  		<tr>
+  			<td><b>Тел. номер:</b></td>
+  			<td>{{userInfo.phone}}</td>
+  		</tr>
+  		
+  	</table>
+  	
+  	</div>
+  	</div>
+  	<div class="panel panel-default">
+	    <div class="panel-heading font-bold">Изменить пароль</div>
+	    <div class="panel-body">
+	      <form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="update()">
+	      	<div class="form-group">
+	          <label class="col-lg-3 control-label">Текущий пароль</label>
+	          <div class="col-lg-9">
+	            <input type="text" placeholder="" class="form-control" ng-model="staff.name" value="staff.name">
+	          </div>
+	        </div>
+	        <div class="form-group">
+	          <label class="col-lg-3 control-label">Новый пароль</label>
+	          <div class="col-lg-9">
+	            <input type="text" placeholder="" class="form-control" ng-model="staff.name" value="staff.name">
+	          </div>
+	        </div>
+	        <div class="form-group">
+	          <label class="col-lg-3 control-label">Новый пароль</label>
+	          <div class="col-lg-9">
+	            <input type="text" placeholder="" class="form-control" ng-model="staff.name" value="staff.name">
+	          </div>
+	        </div>
+	        <div class="form-group">
+	            <label class="col-lg-3 control-label"></label>
+	              <div class="col-lg-9">
+	                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+	              </div>
+	        </div>
+	     </form>
+	    </div>
+     </div>
+   </div>
+  </div>
+</div>
+</div>
+</div>

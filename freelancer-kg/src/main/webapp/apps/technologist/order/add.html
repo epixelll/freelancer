@@ -1,0 +1,90 @@
+<div ng-controller="OrderAddCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Добавить order stage shifting</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="create()">
+				          	
+						<div class="row">
+						    <div class="col-sm-9">
+					              <div class="form-group">
+						          	<label class="col-lg-3 control-label">Order stage</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="order_stage_shifting.orderStage.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="order_stage in order_stages" ng-value="order_stage.id">{{order_stage.order.name+' - '+order_stage.orderStatus.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+					            
+					              <div class="form-group">
+						          	<label class="col-lg-3 control-label">Model</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="order_stage_shifting.model.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="model in models" ng-value="model.id">{{model.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+						            <div class="form-group">
+						          	<label class="col-xs-3 control-label">Color</label>
+						            <div class="col-lg-9" > 
+						              <select  ng-model="order_stage_shifting.color.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="color in colors" ng-value="color.id">{{color.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+						                <div class="form-group">
+						          	<label class="col-lg-3 control-label">Size</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="order_stage_shifting.size.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="size in sizes" ng-value="size.id">{{size.size}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+						         <div class="form-group">
+					              <label class="col-lg-3 control-label">Quantity</label>
+					              <div class="col-lg-9">
+					                <input type="textarea" placeholder="" class="form-control" ng-model="order_stage_shifting.quantity" required>
+					              </div>
+					            </div>
+						          <div class="form-group">
+							          <div class="col-lg-6">
+							            <div class="checkbox">
+							              <label class="i-checks">
+							                <input type="checkbox" ng-value="order_stage_shifting.isApproved" ng-model="order_stage_shifting.isApproved"  name="isApproved">
+							                <i></i>
+							                Approved
+							              </label>
+							            </div>
+						         </div>
+						         </div>
+
+				            <div class="form-group">
+					            <label class="col-lg-3 control-label"></label>
+					              <div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+					              </div>
+					        </div>						          	
+						    </div>				    
+						    </div>
+						    
+				          </form>
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

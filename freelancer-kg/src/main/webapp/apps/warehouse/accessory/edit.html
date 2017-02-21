@@ -1,0 +1,66 @@
+<div ng-controller="AccessoryEditCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Редактирование</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="update()">
+				          	
+						<div class="row">
+						    <div class="col-sm-9">
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Наименование</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="accessory.name" required>
+					              </div>
+					            </div>
+					            <div class="form-group">
+						          	<label class="col-lg-3 control-label">Категория</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="accessory.accessoryCategory.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="accessory_category in accessory_categories" ng-selected="accessory.accessoryCategory.id == accessory_category.id" ng-value="accessory_category.id">{{accessory_category.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+					            
+					            
+					            <div class="form-group">
+						          	<label class="col-lg-3 control-label">Ед. измерения</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="accessory.unit.id" class="form-control" required select>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="unit in units" ng-selected="accessory.unit.id == unit.id" ng-value="unit.id">{{unit.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         
+						          <div class="form-group">
+					              <label class="col-lg-3 control-label">Описание</label>
+					              <div class="col-lg-9">
+					                <input type="textarea" placeholder="" class="form-control" ng-model="accessory.description" required>
+					              </div>
+					            </div>
+				            <div class="form-group">
+					            <label class="col-lg-3 control-label"></label>
+					              <div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+					              </div>
+					        </div>						          	
+						    </div>				    
+						    </div>
+						    
+				          </form>
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

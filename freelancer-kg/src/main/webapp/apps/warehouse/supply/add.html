@@ -1,0 +1,299 @@
+<div ng-controller="AddSupplyCtrl">
+<!-- content -->
+<div class="row panel-info">
+	<div class="col-lg-12 panel-info">
+		<section class="panel panel-info">
+		  <div class="form-inline" >
+		
+			<div ng-if="warehouses.length > 1 " class="col-lg-4">
+  				<div class="col-lg-12 panel-body ">
+			        <div class="form-group">
+			        <label class="panel-label">Выберите склад &nbsp; </label>
+			          <select ng-model="supply.warehouse.id" name="productType" class="form-control" >
+		                <option ng-repeat="warehouse in warehouses" value="{{warehouse.id}}">
+		                {{warehouse.name}}
+		                </option>
+		              </select> 
+   					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	</div>
+	</div>
+	
+	<div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-info">
+			        <div class="panel-heading font-bold">Добавить</div>
+			        <div class="panel-body">
+				 <form class="bs-example form-horizontal ng-pristine ng-valid">
+						<div class="row" class="form-inline">
+						
+						
+
+						    <div class="col-md-3">					            
+						            <div class="form-group">
+						              <div class="col-lg-9">
+						                <input type="text" placeholder="Описание" class="form-control" ng-model="supply.description">
+						              </div>
+					            </div>
+					           </div>
+					            
+					            <div class="col-md-3">
+					            <div class="form-group">
+						            <div class="col-lg-9">
+						            	<p class="input-group mydatepicker">
+											 <input ng-model="supply.date" type="text" class="form-control" datepicker-popup="{{commondatepicker.format}}" ng-model="dt" 
+											 		is-open="commondatepicker.opened1" min-date="1925-09-01" max-date="'2020-06-22'" datepicker-options="commondatepicker.dateOptions" 
+											 		ng-required="true" close-text="Close" placeholder="Дата" />
+										    <span class="input-group-btn">
+										   		<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened1')"><i class="glyphicon glyphicon-calendar"></i></button>
+										   	</span>
+									   	</p>
+									</div>
+						         </div>
+						         </div>
+						         
+						         <div class="col-md-3">
+					            <div class="form-group">
+							          <div class="col-lg-9">
+							            <div class="checkbox">
+							              <label class="i-checks">
+							                <input ng-model="supply.isInternal" type="checkbox" value="">
+							                <i></i>
+							                Внутренний(да/нет)
+							              </label>
+							            </div>
+						         </div>
+						         </div>
+						         </div>
+						         
+					            <div class="col-md-3">
+					  				<div class="col-lg-9 ">
+								        <div class="form-group">
+								          <select ng-model="itemType" name="productType" class="form-control" >
+								         	<option value="">Выберите тип</option>
+							                <option value="product">Продукт</option>
+							                <option value="accessory">Бижутерия/Аксессуар</option>
+							                <option value="fabric">Ткань</option>
+							              </select> 
+					   					</div>
+									</div>
+								</div>
+						</div>
+						</form>
+						
+						 <!-- PRODUCT -->
+						 <form class="bs-example form-horizontal ng-pristine ng-valid" ng-if="itemType=='product'"  ng-submit="addProduct()">
+								<div class="row" class="form-inline">
+						        <div class="col-md-3">
+					            <div class="form-group">
+					               <div class="col-lg-9"> 
+						            <ui-select ng-model="supplyProduct.model" ng-required>
+									    <ui-select-match placeholder="Select Model">
+									        <span ng-bind="$select.selected.name"></span>
+									    </ui-select-match>
+									    <ui-select-choices data-id="$index" repeat="model in models | filter:$select.search">
+									        {{model.name}}
+									    </ui-select-choices>
+									</ui-select>
+						            </div>
+						         </div>	
+						         </div>
+						         
+						         <div class="col-md-3">
+					            <div class="form-group">
+					               <div class="col-lg-9"> 
+						            <ui-select ng-model="supplyProduct.product" required ng-change="clearProductQuantity()">
+									    <ui-select-match  placeholder="Select Product">
+									        <span ng-bind="$select.selected.name"></span>
+									    </ui-select-match>
+									    <ui-select-choices data-id="$index" repeat="product in products | filter:$select.search">
+									        {{product.name}}
+									    </ui-select-choices>
+									</ui-select>
+						            </div>
+						         </div>	
+						         </div>
+						         
+					            <div class="col-md-3">
+					            <div class="form-group">
+					               <div class="col-lg-9"> 
+						            <ui-select ng-model="supplyProduct.size" required ng-change="clearProductQuantity()">
+									    <ui-select-match  placeholder="Select Size">
+									        <span ng-bind="$select.selected.size"></span>
+									    </ui-select-match>
+									    <ui-select-choices data-id="$index" repeat="modelSize in supplyProduct.model.sizeList | filter:$select.search">
+									        {{modelSize.size}}
+									    </ui-select-choices>
+									</ui-select>
+						            </div>
+						         </div>	
+						         </div>
+						         
+						         <div class="col-md-3">					            
+					            <div class="form-group">
+					            <button class="btn btn-primary">Добавить</button>
+					              <div class="col-lg-6">
+					                <input type="number" placeholder="Количество" class="form-control" required ng-model="supplyProduct.quantity">
+
+					              </div>
+					            </div>
+					            </div>
+					       </div>
+						</form>	
+						
+						<!-- ACCESSORY -->
+						<form class="bs-example form-horizontal ng-pristine ng-valid" ng-if="itemType=='accessory'"  ng-submit="addAccessory()">
+								<div class="row" class="form-inline">
+						    
+						        <div class="col-md-3">
+					              <div class="form-group">
+					               <div class="col-lg-9"> 
+						            <ui-select ng-model="supplyAccessory.accessoryCategory" ng-required>
+									    <ui-select-match placeholder="Select Accessory Category">
+									        <span ng-bind="$select.selected.name"></span>
+									    </ui-select-match>
+									    <ui-select-choices data-id="$index" repeat="accessoryCategory in accessoryCategories | filter:$select.search">
+									        {{accessoryCategory.name}}
+									    </ui-select-choices>
+									</ui-select>
+						            </div>
+						         </div>	
+						         </div>
+					            
+					            <div class="col-md-3">
+					            <div class="form-group">
+					               <div class="col-lg-9"> 
+						            <ui-select ng-model="supplyAccessory.accessory" ng-required ng-change="clearAccessoryAmount()">
+									    <ui-select-match placeholder="Select Accessory">
+									        <span ng-bind="$select.selected.name"></span>
+									    </ui-select-match>
+									    <ui-select-choices data-id="$index" repeat="accessory in accessories | filter:$select.search">
+									        {{accessory.name}}
+									    </ui-select-choices>
+									</ui-select>
+						            </div>
+						         </div>	
+						         </div>
+						         
+						         <div class="col-md-3">					            
+					            <div class="form-group">
+					             <!-- <button class="btn btn-rounded btn btn-icon btn-info"><i class="fa fa-plus"></i></button> -->
+					              <div class="col-lg-9">
+					                <input type="number" placeholder="Количество" class="form-control" ng-model="supplyAccessory.amount" required	>
+					              </div>
+					            </div>
+					            </div>
+					            
+					            <div class="col-md-3">					            
+					            	<div class="form-group">
+					              		 <div class="col-lg-9">
+					              		<button class="btn btn-primary">&nbsp;Добавить</button>
+					              		</div>
+					            	</div>
+					            </div>
+					            
+					            
+					       </div>
+						</form>
+						
+						<!-- FABRIC -->
+						<form class="bs-example form-horizontal ng-pristine ng-valid" ng-if="itemType=='fabric'">
+								<div class="row" class="form-inline">
+						    
+						        <div class="col-md-3">
+					            <div class="form-group">
+						            <div class="col-lg-9"> 
+						              <select ng-model="order.orderedBy.id" class="form-control" select required>
+						              	<option value="">Выберите брЭнд</option>
+						                <option ng-repeat="identity in identitys" ng-value="identity.id">{{identity.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         </div>
+					            
+					            <div class="col-md-3">
+					            <div class="form-group">
+						            <div class="col-lg-9"> 
+						              <select ng-model="order.orderedBy.id" class="form-control" select required>
+						              	<option value="">Выберите ткань</option>
+						                <option ng-repeat="identity in identitys" ng-value="identity.id">{{identity.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         </div>
+						         
+						         <div class="col-md-3">					            
+					            <div class="form-group">
+					              <div class="col-lg-9">
+					                <input type="number" placeholder="Количество" class="form-control" ng-model="order.name" required>
+					              </div>
+					            </div>
+					            </div>
+					            
+					             <div class="col-md-3">					            
+					            	<div class="form-group">
+					            	 <div class="col-lg-9">
+					              		<button class="btn btn-primary">&nbsp;Добавить</button>
+					              		</div>
+					            	</div>
+					            </div>
+					            
+					            
+					       </div>
+						</form>
+						
+			</div>
+		
+			    </div>
+			      <div class="panel panel-info">
+			        <div class="panel-heading font-bold">Products For Supply</div>
+			        <div class="panel-body">
+		  				<table ng-table="tableParamsProducts" template-pagination="custom/pager" class="table table-striped m-b-none dataTable" show-filter="true">
+		                    <tr ng-repeat="supplyProduct in supply.supplyProducts" ng-class="{odd: $odd, even: $even}">
+		                    	<td data-title="'#'">{{$index + 1}}.</td>
+		                      <td data-title="'Model'" class="text-center">{{supplyProduct.product.model.name}}</td>
+		                      <td data-title="'Продукт'" class="text-center">{{supplyProduct.product.name}}</td>
+		                      <td data-title="'Размер'" class="text-center">{{supplyProduct.size.size}}</td>
+		                      <td data-title="'Количество'"class="text-center" >{{supplyProduct.quantity}}</td>
+		                      
+		                      <td >
+		                      	<a class="btn btn-sm btn-icon btn-danger" ng-click="callDeleteModal('model', model.id)"><i class="glyphicon glyphicon-trash"></i></a>
+		                      	</td>
+		                    </tr>
+		                </table>
+ 					</div>
+ 				</div>
+ 				<div class="panel panel-info">
+			        <div class="panel-heading font-bold">Accessories For Supply</div>
+			        <div class="panel-body">
+		  				<table ng-table="tableParamsProducts" template-pagination="custom/pager" class="table table-striped m-b-none dataTable" show-filter="true">
+		                    <tr ng-repeat="supplyAccessory in supply.supplyAccessories" ng-class="{odd: $odd, even: $even}">
+		                    	<td data-title="'#'">{{$index + 1}}.</td>
+		                      <td data-title="'Accessory Category'" class="text-center">{{supplyAccessory.accessory.accessoryCategory.name}}</td>
+		                      <td data-title="'Accessory'" class="text-center">{{supplyAccessory.accessory.name}}</td>
+		                      <td data-title="'Количество'"class="text-center" >{{supplyAccessory.amount}}</td>
+		                      
+		                      <td >
+		                      	<a class="btn btn-sm btn-icon btn-danger" ng-click="callDeleteModal('model', model.id)"><i class="glyphicon glyphicon-trash"></i></a>
+		                      	</td>
+		                    </tr>
+		                </table>
+ 					</div>
+ 				</div>
+ 				<div class="form-group">
+		            <button class="btn btn-primary" ng-click="create()" >SAVE</button>
+		            </div>
+ 				</div>
+ 			</div>
+	        </div>
+	      </div>
+	  
+	
+ 	
+ 		 		
+		   
+ 

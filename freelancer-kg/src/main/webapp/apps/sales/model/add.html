@@ -1,0 +1,139 @@
+<div ng-controller="ModelAddCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Добавить</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="create()">
+				          	
+						<div class="row">
+						    
+					            
+					            <div class="col-md-4">
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Название</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.name">
+					              </div>
+					            </div>
+					            </div>
+					            
+					            
+					            <div class="col-md-4">
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Артикул</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.artikul">
+					              </div>
+					            </div>
+					            </div>
+					            
+					            <div class="col-md-4">
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Баркод</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.barcode">
+					              </div>
+					            </div>
+					            </div>
+					            </div>
+					            					            
+					           
+					           <div class="row">
+					           
+					           <div class="col-md-4">
+					            <div class="form-group">
+						          	<label class="col-lg-3 control-label">Пол</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="model.sex.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="sex in sexs" ng-value="sex.id">{{sex.name}}</option>
+						              </select>  
+						            </div>
+						        </div>
+						        </div>		           
+					           
+					           <div class="col-md-4">
+					           <div class="form-group">
+						          	<label class="col-lg-3 control-label">Сезон</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="model.season.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="season in seasons" ng-value="season.id">{{season.name}}</option>
+						              </select>  
+						            </div>
+						       </div>
+						       </div>
+						       
+					           <div class="col-md-4"> 					            
+					           <div class="form-group">
+						          	<label class="col-lg-3 control-label">Возрастная категория</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="model.ageCategory.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="ageCategory in ageCategorys" ng-value="ageCategorys.id">{{ageCategory.name}}</option>
+						              </select>  
+						            </div>
+						        </div>
+						        </div>
+						        </div>
+						        
+						        <div class="row">
+						        <div class="col-md-4">
+						        <div class="form-group">
+						          	<label class="col-lg-3 control-label">Классификация</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="model.classification.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="classification in classifications" ng-value="classification.id">{{classification.name}}</option>
+						              </select>  
+						            </div>
+						       	</div>
+						       	</div>
+						       	
+						        
+          						
+          						<div class="col-md-4">
+          						<div class="form-group">
+						          	<label class="col-lg-3 control-label">Фотография</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="model.photo.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="photo in photos" ng-value="photo.id">{{ageCategory.name}}</option>
+						              </select>  
+						            </div>
+						        </div>
+						       	</div>
+						       	
+						       	<div class="col-md-4">             					
+              					<div class="form-group">
+            						<label class="col-lg-3">isLineColorBased</label>
+            						<div class="col-lg-6">  
+										<input type="checkbox" ng-model="model.isLineColorBased">            						
+            						</div>          						
+          						</div>
+          						</div>
+						       	</div>
+					            					     
+				            <div class="form-group">
+					            <label class="col-lg-3 control-label"></label>
+					              <div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+					              </div>
+					        </div>						          	
+						    </div>				    
+						    </div>
+						    
+				          </form>
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

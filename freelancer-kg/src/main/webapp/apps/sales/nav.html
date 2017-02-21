@@ -1,0 +1,127 @@
+<!-- list -->
+<div id="aside-user" class="clearfix hidden-xs text-center hide">
+      <div dropdown="" class="dropdown wrapper">
+        <a ui-sref="profile" href="profile">
+          <span class="thumb-lg w-auto-folded avatar m-t-sm">
+            <img alt="..." class="img-full" src="../../assets/img/a0.jpg">
+          </span>
+        </a>
+        <a dropdown-toggle="" class="dropdown-toggle hidden-folded" href="" aria-haspopup="true" aria-expanded="false">
+          <span class="clear">
+            <span class="block m-t-sm">
+              <strong class="font-bold text-lt">{{userInfo.name}} {{userInfo.surname}}</strong> 
+              <b class="caret"></b>
+            </span>
+            <span class="text-muted text-xs block">{{userInfo.position.name}}</span>
+          </span>
+        </a>
+      </div>
+      <div class="line dk hidden-folded"></div>
+    </div>
+    
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs"></li>
+    <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-tint icon text-info"></i>
+      <span class="font-bold ptsans">Заказы</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Заказы</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.order.list">Список заказов</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.order.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый заказ </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+  
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-tint icon text-info"></i>
+      <span class="font-bold ptsans">Клиент</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Клиент</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.client.list">Список клиентов</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.client.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-tint icon text-info"></i>
+      <span class="font-bold ptsans">Продукт</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Продукт</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.product.list">Список продуктов</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.product.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="glyphicon glyphicon-tint icon text-info"></i>
+      <span class="font-bold ptsans">Модель</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Модель</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="sales.model.list">Список Моделей</a>
+      </li>
+      <!-- <li ui-sref-active="active">
+        <a ui-sref="sales.model.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li> -->
+    </ul>
+  </li> 
+</ul>
+<!-- / list -->

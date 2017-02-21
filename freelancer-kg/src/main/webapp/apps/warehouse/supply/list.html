@@ -1,0 +1,105 @@
+<div ng-controller="SupplyListCtrl">
+<!-- content -->
+<div class="row">
+	<div class="col-lg-12">
+		<section class="panel">		
+			<div class="col-lg-12">
+				<div class="bg-default lter b-b col-lg-5 panel-heading">
+					<h1 class="m-n font-thin h3">Список</h1>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="progress progress-xs m-b-none dker ">
+            	<div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: 100%"></div>
+        	</div>
+  			<div class="panel-body">
+  				<div class="panel panel-info" draggable="true">
+					<div class="panel-heading"> Поступление в Склад
+						<div style="float:right	">
+							<label class="i-switch bg-info m-t-xs m-r">
+				              	<input type="checkbox" ng-click="toggleTable(1)">
+				              <i></i>
+				            </label>
+			            </div>
+		            </div>
+					<div class="toggle toggle_1 ">
+		  				<table ng-table="tableParamsForIn" template-pagination="custom/pager" class="table table-striped m-b-none dataTable" show-filter="true">
+		                    <tr ng-repeat="shipping in $data" ng-class="{odd: $odd, even: $even}">
+		                    	<td data-title="'#'">{{$index + 1}}.</td>
+		                      <td data-title="'Дата Планировки'" sortable="'statusDate.created'">{{shipping.statusDate.created | date: 'dd-MM-yyyy'}}</td>
+		                      <td data-title="'Дата Подтверждения'" sortable="'statusDate.approvedAdmin'">{{shipping.statusDate.approvedAdmin | date: 'dd-MM-yyyy'}}</td>
+                              <td data-title="'Дата Отправки'" sortable="'statusDate.approvedFromPlace'">{{shipping.statusDate.approvedFromPlace | date: 'dd-MM-yyyy'}}</td>
+		                      <td data-title="'Дата Получения'" sortable="'statusDate.approvedToPlace'">{{shipping.statusDate.approvedToPlace | date: 'dd-MM-yyyy'}}</td>
+                              <td data-title="'Статус'" sortable="'status.name'" filter="{ 'status.name': 'text' }"><span class="pull-right label inline m-t-sm shippingStatus_{{shipping.status.id}}">{{shipping.status.name | uppercase}}</span></td>
+		                      <td data-title="'Описание'" sortable="'description'" filter="{ 'description': 'text' }">{{shipping.description}}</td>
+		                     <td >
+	                     	 	<a ng-click="showShippingDetails(shipping.id, 'ForIn')" class="btn btn-sm btn-icon btn-info"><i class="fa fa-list-alt"></i></a></td>
+		                    </tr>
+		                </table>
+		            </div>
+ 		 		</div>
+ 		 		
+ 		 		<div class="panel panel-warning" draggable="true">
+					<div class="panel-heading"> Вывоз из Склада 
+						<div style="float:right	">
+							<label class="i-switch bg-warning m-t-xs m-r">
+				              	<input type="checkbox" ng-selected="selected" ng-click="toggleTable(2)">
+				              <i></i>
+				            </label>
+			            </div>
+		            </div>
+					<div class="toggle toggle_2 ">
+		  				<table ng-table="tableParamsForOut" template-pagination="custom/pager" class="table table-striped m-b-none dataTable" show-filter="true">
+		                    <tr ng-repeat="shipping in $data" ng-class="{odd: $odd, even: $even}">
+		                    	<td data-title="'#'">{{$index + 1}}.</td>
+		                      <td data-title="'Дата Запроса'" sortable="'statusDate.created'">{{shipping.statusDate.created | date: 'dd-MM-yyyy'}}</td>
+		                      <td data-title="'Дата Подтверждения'" sortable="'statusDate.approvedAdmin'">{{shipping.statusDate.approvedAdmin | date: 'dd-MM-yyyy'}}</td>
+                              <td data-title="'Дата Отправки'" sortable="'statusDate.approvedFromPlace'">{{shipping.statusDate.approvedAdmin | date: 'dd-MM-yyyy'}}</td>
+		                      <td data-title="'Дата Получения'" sortable="'statusDate.approvedToPlace'">{{shipping.statusDate.approvedToPlace | date: 'dd-MM-yyyy'}}</td>
+                              <td data-title="'Статус'" sortable="'shippingStatus.name'" filter="{ 'shippingStatus.name': 'text' }"><span class="pull-right label inline m-t-sm shippingStatus_{{shipping.shippingStatus.id}}">{{shipping.shippingStatus.name | uppercase}}</span></td>
+		                      <td data-title="'Пункт Назначения'" sortable="'placeByToPlaceId.name'" filter="{ 'placeByToPlaceId.name': 'text' }">{{shipping.placeByToPlaceId.name}}</td>
+		                      <td data-title="'Описание'" sortable="'description'" filter="{ 'description': 'text' }">{{shipping.description}}</td>
+		                      <td >
+		                      <a ng-if="(shipping.shippingStatus.name == 'Запрос' && shipping.sent == true) || (shipping.shippingStatus.name == 'Отменен администратором'  && shipping.sent == true)" ui-sref="warehouse_manager.shipping.edit({ id: shipping.id })" class="btn btn-sm btn-icon btn-warning"><i tooltip="Изменить" class="fa fa-pencil"></i></a>
+		                      <a ng-click="showShippingDetails(shipping.id, 'ForOut')" class="btn btn-sm btn-icon btn-info"><i class="fa fa-list-alt"></i></a></td>
+		                    </tr>
+		                </table>
+		            </div>
+ 		 		</div>
+ 		 		 <div class="row">
+					<div class="col-sm-12">
+						<button class="btn m-b-xs btn-sm btn-success btn-addon pull-right" ng-click="exportData()"><i class="fa fa-print pull-right"></i>Распечатать PDF</button>
+					</div>
+				</div>
+ 		 		
+			  </div>
+		</section>
+	</div>
+</div>
+<!-- content -->
+</div>
+
+
+<script type="text/ng-template" id="custom/pager">
+      <ul class="pager ng-cloak ng-table-pager">
+		<div style="float: left"><li style="float: none"> 
+            <div class="btn-group">
+                <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
+                <button type="button" ng-class="{'active':params.count() == 25}" ng-click="params.count(25)" class="btn btn-default">25</button>
+                <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-default">50</button>
+                <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
+            </div>
+		</li>
+		</div>
+		<div style="float: right">	
+		<li style="float: none" ng-repeat="page in pages" ng-class="{'disabled ': !page.active}" ng-switch="page.type">
+			<a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+			<a ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a> 
+			<a ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+		</li>
+		</div>
+       </ul>
+</script>

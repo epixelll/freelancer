@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Textile</title>
+<meta name="description" content="nsi, enesai, enesai technologies, nsi tech, textile" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet" href="loginStyle/css/app.min.css" type="text/css" />
+</head>
+<body style="background-image: url(loginStyle/img/logo.jpg); background-size: 100% 100%; background-repeat: no-repeat;">
+
+
+
+	<div class="app app-header-fixed  ">
+
+		<br> <br>
+		<div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
+			<!--   <a href class="navbar-brand block " style="font-size:40px; color:#FFFFFF;'">TEXTILE</a> -->
+			<div class="m-b-lg">
+				<div class="wrapper text-center">
+					<strong></strong>
+				</div>
+
+				<form name="form" action="" method="POST" class="form-validation">
+					<div class="text-danger wrapper text-center" ng-show="authError"></div>
+
+					<div class="list-group list-group-sm">
+						<div class="list-group-item">
+
+							<input type="text" name="username" placeholder="Введите логин" class="form-control no-border" required>
+
+						</div>
+						<div class="list-group-item">
+
+							<input type="password" name="password" placeholder="Введите пароль" class="form-control no-border" required>
+
+						</div>
+					</div>
+
+					<div class="checkbox">
+						<label class="i-checks"> <input type="checkbox" id="rememberMe" name="rememberMe" value="true" /> <i></i> Запомнить
+						</label>
+					</div>
+
+					<button type="submit" class="btn btn-lg btn-dark btn-block" ng-click="login()" ng-disabled='form.$invalid'>Войти</button>
+
+					<div class="line line-dashed"></div>
+
+				</form>
+			</div>
+			<div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
+				<p>
+					<small class="text-muted" style="color: #616161;'">Textile Systems created by NSI Technologies<br>&copy; 2015
+					</small>
+				</p>
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

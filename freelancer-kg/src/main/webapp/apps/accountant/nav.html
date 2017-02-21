@@ -1,0 +1,105 @@
+<!-- list -->
+<div id="aside-user" class="clearfix hidden-xs text-center hide">
+      <div dropdown="" class="dropdown wrapper">
+        <a ui-sref="profile" href="profile">
+          <span class="thumb-lg w-auto-folded avatar m-t-sm">
+            <img alt="..." class="img-full" src="../../assets/img/a0.jpg">
+          </span>
+        </a>
+        <a dropdown-toggle="" class="dropdown-toggle hidden-folded" href="" aria-haspopup="true" aria-expanded="false">
+          <span class="clear">
+            <span class="block m-t-sm">
+              <strong class="font-bold text-lt">{{userInfo.name}} {{userInfo.surname}}</strong> 
+              <b class="caret"></b>
+            </span>
+            <span class="text-muted text-xs block">{{userInfo.position.name}}</span>
+          </span>
+        </a>
+      </div>
+      <div class="line dk hidden-folded"></div>
+    </div>
+	   
+	   <!--Cashbox-->
+	<ul class="nav">
+	  
+	  
+	  <!--Operations-->
+	  <li>
+	    <a href class="auto">      
+	      <span class="pull-right text-muted">
+	        <i class="fa fa-fw fa-angle-right text"></i>
+	        <i class="fa fa-fw fa-angle-down text-active"></i>
+	      </span>
+	      <i class="glyphicon glyphicon-tint icon text-info"></i>
+	      <span class="font-bold ptsans">Operations</span>
+	    </a>
+	    <ul class="nav nav-sub dk">
+	      <li class="nav-sub-header">
+	        <a href>Operations</a>
+	      </li>
+	      <li ui-sref-active="active">
+	        <a ui-sref="accountant.operations.list">list of Operations</a>
+	      </li>
+	      <li ui-sref-active="active">
+	        <a ui-sref="accountant.operations.add">
+	          <b class="label bg-info pull-right">+</b>
+	          <span>add new</span>
+	        </a>
+	      </li>
+	    </ul>
+	  </li>
+	  
+	  <!--Debt-->
+	  <li>
+	    <a href class="auto">      
+	      <span class="pull-right text-muted">
+	        <i class="fa fa-fw fa-angle-right text"></i>
+	        <i class="fa fa-fw fa-angle-down text-active"></i>
+	      </span>
+	      <i class="glyphicon glyphicon-tint icon text-info"></i>
+	      <span class="font-bold ptsans">Debt</span>
+	    </a>
+	    <ul class="nav nav-sub dk">
+	      <li class="nav-sub-header">
+	        <a href>Debt</a>
+	      </li>
+	      <li ui-sref-active="active">
+	        <a ui-sref="accountant.debt.list">list of debt</a>
+	      </li>
+	      <li ui-sref-active="active">
+	        <a ui-sref="accountant.debt.add">
+	          <b class="label bg-info pull-right">+</b>
+	          <span>add new</span>
+	        </a>
+	      </li>
+	    </ul>
+	  </li>
+	  
+	  <!--Salary-->
+	  <li>
+	    <a href class="auto">      
+	      <span class="pull-right text-muted">
+	        <i class="fa fa-fw fa-angle-right text"></i>
+	        <i class="fa fa-fw fa-angle-down text-active"></i>
+	      </span>
+	      <i class="glyphicon glyphicon-tint icon text-info"></i>
+	      <span class="font-bold ptsans">Salary</span>
+	    </a>
+	    <ul class="nav nav-sub dk">
+	      <li class="nav-sub-header">
+	        <a href>Salary</a>
+	      </li>
+	      <li ui-sref-active="active">
+	        <a ui-sref="accountant.salary.list">list of salary</a>
+	      </li>
+	      <li ui-sref-active="active">
+	        <a ui-sref="accountant.salary.add">
+	          <b class="label bg-info pull-right">+</b>
+	          <span>add new</span>
+	        </a>
+	      </li>
+	    </ul>
+	  </li>
+   
+</ul>
+<!-- / list -->

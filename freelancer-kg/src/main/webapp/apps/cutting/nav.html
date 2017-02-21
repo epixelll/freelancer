@@ -1,0 +1,56 @@
+<!-- list -->
+<div id="aside-user" class="clearfix hidden-xs text-center hide">
+      <div dropdown="" class="dropdown wrapper">
+        <a ui-sref="profile" href="profile">
+          <span class="thumb-lg w-auto-folded avatar m-t-sm">
+            <img alt="..." class="img-full" src="../../assets/img/a0.jpg">
+          </span>
+        </a>
+        <a dropdown-toggle="" class="dropdown-toggle hidden-folded" href="" aria-haspopup="true" aria-expanded="false">
+          <span class="clear">
+            <span class="block m-t-sm">
+              <strong class="font-bold text-lt">{{userInfo.name}} {{userInfo.surname}}</strong> 
+              <b class="caret"></b>
+            </span>
+            <span class="text-muted text-xs block">{{userInfo.position.name}}</span>
+          </span>
+        </a>
+      </div>
+      <div class="line dk hidden-folded"></div>
+    </div>
+    
+<ul class="nav">
+  <li><a ui-sref="cutting.order.list" class="auto"> <span class="pull-right text-muted"> <i
+				class="fa fa-fw fa-angle-right text"></i> <i class="fa fa-fw fa-angle-down text-active"></i>
+		</span> <i class="fa fa-link icon text-success"></i> <span class="font-bold ptsans">Заказ</span>
+
+	</a> <!-- <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Заказ</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="admin.order.list">Список заказа</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="admin.order.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li> 
+    </ul> --></li>
+</ul>
+<ul class="nav">
+	<li class="hidden-folded padder m-t m-b-sm text-muted text-xs"></li>
+	<li><a href class="auto"> <span class="pull-right text-muted"> <i class="fa fa-fw fa-angle-right text"></i> <i
+				class="fa fa-fw fa-angle-down text-active"></i>
+		</span> <i class="glyphicon glyphicon-wrench text-success"></i> <span class="font-bold ptsans">Поврежденные</span>
+	</a>
+		<ul class="nav nav-sub dk">
+			<li class="nav-sub-header"><a href>Поврежденные</a></li>
+			<li ui-sref-active="active"><a ui-sref="cutting.deffective.list">Список Поврежденных</a></li>
+			<li ui-sref-active="active"><a ui-sref="cutting.deffective.add"> <b class="label bg-info pull-right">+</b> <span>Добавить
+						новый</span>
+			</a></li>
+		</ul></li>
+</ul>
+<!-- / list -->

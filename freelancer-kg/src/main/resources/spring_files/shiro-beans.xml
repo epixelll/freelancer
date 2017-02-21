@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+	    <property name="securityManager" ref="securityManager"/>
+	    <property name="loginUrl" value="/login.html"/>
+	    <property name="successUrl" value="/rest/security/redirect"/>
+	    <property name="unauthorizedUrl" value="/unauthorized.html"/>
+<!-- 	    <property name="redirectUrl" value="/login.html"/>  -->
+
+	    <property name="filterChainDefinitions">
+<!-- 	    	<value></value> -->
+	        <value>
+	        	/login.html = authc
+	            /logout = logout
+	            /apps/ceo/** = authc, roles[ceo]
+				/apps/reception/** = authc, roles[reception]
+				#/apps/cashier/** = authc, roles[cashier]
+				/apps/hr_manager/** = authc, roles[hr_manager]
+				/apps/accountant/** = authc, roles[accountant]
+				/apps/chief_nurse/** = authc, roles[chief_nurse]
+				/apps/chief_doctor/** = authc, roles[chief_doctor]
+				/apps/laboratory_assistant/** = authc, roles[laboratory_assistant]
+				/apps/warehouse_manager/** = authc, roles[warehouse_manager]
+				
+				/assets/** anon
+				
+				/rest/security/** = authc
+				/rest/** = authc
+	        </value>
+	    </property>
+	</bean>
+		
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+	    <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+	    <property name="realm" ref="myRealm"/>
+	    <!-- By default the servlet container sessions will be used.  Uncomment this line
+	         to use shiro's native sessions (see the JavaDoc for more): -->
+	    <property name="sessionMode" value="native"/>
+	</bean>
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+	
+	<!-- Define the Shiro Realm implementation you want to use to connect to your back-end -->
+	<!-- security datasource: -->
+	<bean id="myRealm" class="kg.enesaitech..security.MyRealm">
+		<property name="credentialsMatcher" ref="matcher"/>
+	</bean>
+	
+	<bean id="matcher" class="kg.enesaitech..security.MyCredentialsMatcher"/>
+	<bean id="anyofroles" class="kg.enesaitech..security.AnyOfRolesAuthorizationFilter"/>
+
+</beans>

@@ -1,0 +1,74 @@
+
+#working-hour-tbl .WORKING_HOUR {
+	background-color: #ff7043;
+	color: white;
+
+}
+#working-hour-tbl .WORKING_HOUR:hover {
+	background-color: #ff7043;
+	color: white;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#working-hour-tbl .BREAK {
+	background-color: #69f0ae;
+	color: white;
+	border: solid 1px #69f0ae;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#working-hour-tbl .EXTRA_TIME {
+	background-color: #64b5f6;
+	color: white;
+	border: solid 1px #03a9f4;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+#working-hour-tbl .cell-selected{
+	background-color: #f4ff81;
+	color: black;
+}
+
+#working-hour-tbl td {
+	padding: 0px;
+	text-align: center;
+}
+
+
+
+
+
+.btn-danger {
+	color: #ffffff !important;
+	background-color: #ff7043;
+	border-color: #ff7043;
+	font-weight: 800;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.btn-danger:hover{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+
+.btn-info {
+	color: #ffffff !important;
+	background-color: #64b5f6;
+	border-color: #64b5f6;
+	font-weight: 800;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.btn-info:hover{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+
+.btn-success {
+	color: #ffffff !important;
+	background-color: #69f0ae;
+	border-color:  #69f0ae;
+	font-weight: 800;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+.btn-success:hover{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}

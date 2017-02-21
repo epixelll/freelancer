@@ -1,0 +1,174 @@
+<div ng-if="type=='staff'">
+<div class="col-sm-12" style="width:500px; margin-left:-150px" >
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-warning">
+          <a href class="font-bold">Info</a>
+        </div>
+        <ul class="list-group list-group-lg no-bg auto">
+          <li class="list-group-item clearfix">
+       
+            <span class="pull-left thumb-sm avatar m-r">
+              info: {{entity.name}}
+            </span>
+            <span class="clear">
+              <span>{{staff.identity.name}}</span>
+              
+            </span>
+          </li>
+          <li class="list-group-item clearfix">
+            <span class="pull-left thumb-sm avatar m-r">
+            </span>
+            <span class="clear">
+              <span>Birth Date:</span>
+              <small class="text-muted clear text-ellipsis">{{staff.birth_date |  date:'dd.MM.yyyy'}}</small>
+            </span>
+          </li>
+          <li class="list-group-item clearfix">
+            <span class="clear">
+              <span>Employment date:</span>
+              <small class="text-muted clear text-ellipsis">{{staff.employment_date}}</small>
+            </span>
+          </li>
+          <li class="list-group-item clearfix">
+            <span class="pull-left thumb-sm avatar m-r">
+            </span>
+            <span class="clear">
+              <span>Address:</span>
+              <small class="text-muted clear text-ellipsis">{{staff.address}}</small>
+            </span>
+          </li>
+            <li class="list-group-item clearfix">
+            <span class="pull-left thumb-sm avatar m-r">
+            </span>
+            <span class="clear">
+              <span>Mobile Phone:</span>
+              <small class="text-muted clear text-ellipsis">{{staff.mobile_phone}}</small>
+            </span>
+          </li>
+            <li class="list-group-item clearfix">
+            <span class="clear">
+              <span>Person Number:</span>
+              <small class="text-muted clear text-ellipsis">{{staff.person_number}}</small>
+            </span>
+        </ul>
+        <div class="modal-footer">
+	<div class="doc-buttons">
+		<button class="panel-heading no-border bg-warning btn btn-link" ng-click="cancel()">OK</button>
+	</div>
+      </div>       
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div>
+  </div>
+
+
+<!--  <div ng-if="type=='staff'">
+<div class="modal-header">
+	<h3 class="modal-title">Info</h3>
+</div>
+<div class="modal-body">
+	<h4>info: {{entity.name}}</h4>
+</div>
+<div class="modal-footer">
+	<div class="doc-buttons">
+		<button class="btn btn-default" ng-click="cancel()">OK</button>
+	</div>
+	
+</div> 
+</div>
+<div ng-if="type!='staff'">
+<div class="modal-header">
+	<h3 class="modal-title">Info</h3>
+</div>
+<div class="modal-body">
+	<h4>info: {{entity.name}}</h4>
+	<h4>info: {{entity.name}}</h4>
+</div>
+<div class="modal-footer">
+	<div class="doc-buttons">
+		<button class="btn btn-default" ng-click="cancel()">OK</button>
+	</div>
+	
+</div> 
+</div> -->
+<div ng-if="type!='staff'">
+<div class="col-sm-12" style="width:500px; margin-left:-150px" >
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-warning">
+          <a href class="font-bold">Info</a>
+        </div>
+        <ul class="list-group list-group-lg no-bg auto">
+          <li class="list-group-item clearfix">
+            <span class="pull-left thumb-sm avatar m-r">
+              Name: {{entity.name}}
+            </span>
+            <span class="clear">
+              <span>{{staff.identity.name}}</span>
+              
+            </span>
+          </li>
+        </ul>
+        <div class="modal-footer">
+	<div class="doc-buttons">
+		<button class="panel-heading no-border bg-warning btn btn-link" ng-click="cancel()">OK</button>
+	</div>
+      </div>       
+    </div>
+  </div>
+</div>
+
+
+    </div>
+  </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

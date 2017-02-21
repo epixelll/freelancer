@@ -1,0 +1,90 @@
+<div ng-controller="ModelEditCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Изменить</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="update()">
+				          	
+						<div class="row">
+						    <div class="col-sm-9">
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Название</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.name">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Артикул</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.artikul">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Баркод</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.barcode">
+					              </div>
+					            </div>
+					            						         
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Пол</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.sex.name">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Сезон</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.season.name">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Возрастная категория</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.ageCategory.name">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">IsLineColorBased</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.isLineColorBased">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Фотография</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="model.photo">
+					              </div>
+					            </div>
+					            					            
+				            <div class="form-group">
+					            <label class="col-lg-3 control-label"></label>
+					              <div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+					                <a class="btn btn-sm btn-danger" ui-sref="ceo.doctor.list">Отмена</a>
+					              </div>
+					        </div>						          	
+						    </div>				    
+						    </div>
+						    
+				          </form>
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

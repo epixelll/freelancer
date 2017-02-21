@@ -1,0 +1,46 @@
+<div class="col-sm-12" >
+      <div class="panel b-a">
+        <div class="panel-heading b-b b-light">
+          <a href class="font-bold">Названия : {{model.name}}</a>
+        </div>
+        <ul class="list-group list-group-lg no-bg auto">
+          <li class="list-group-item clearfix">
+            <span class="pull-left thumb-sm avatar m-r">
+              {{model.photos}}
+            </span>
+          </li>
+          <li class="list-group-item clearfix">
+            <span class="pull-left thumb-sm avatar m-r">
+              <div class= "col-md-6">
+              	
+	              Артикуль: {{model.artikul}}
+	              <br>
+	              Баркод : {{model.barcode}}
+	              <br>
+	              Пол : {{sex.name}}
+	              <br>
+	              Сезон : {{season.name}}
+	              <br>
+	              
+              </div>
+              <div class= "col-md-6">
+              	  Возрастная категория : {{ageCategory.name}}
+              	  <br>
+              	  Классификация : {{classification.name}}
+              	  <br>
+              	  Цвет : {{color.name}}
+              	  <br>
+              	  Размер : {{size.size}}
+              </div>
+              
+            </span>
+           
+          </li>
+        </ul>
+        <div class="modal-footer">
+	<div class="doc-buttons">
+		<button class="btn btn-default" ng-click="close()">OK</button>
+	</div>
+      </div>       
+    </div>
+  </div>

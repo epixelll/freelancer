@@ -1,0 +1,94 @@
+<div ng-controller="OperationsAddCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Добавить</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="create()">
+				          	
+						<div class="row">
+						    <div class="col-sm-9">
+					            
+								<div class="form-group">
+									<label class="col-lg-3 control-label">cashbox</label>
+									<div class='col-lg-9'>
+										<select ng-model="transaction.transactionCategory.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-repeat="transactionCategory in transactionCategorys" ng-value="transactionCategory.id">{{transactionCategory.name}}</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Категория сделки</label>
+									<div class='col-lg-9'>
+										<select ng-model="transaction.transactionCategory.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-repeat="transactionCategory in transactionCategorys" ng-value="transactionCategory.id">{{transactionCategory.name}}</option>
+										</select>
+									</div>
+								</div>
+								
+					            <div class="form-group">
+									<label class="col-lg-3 control-label">Валюта</label>
+									<div class='col-lg-9'>
+										<select ng-model="transaction.currency.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-repeat="currency in currencys" ng-value="currency.id">{{currency.name}}</option>
+										</select>
+									</div>
+								</div>
+								
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Количество</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="transaction.amount">
+					              </div>
+					            </div>
+					            
+					            <div class="form-group">
+									<label class="col-lg-3 control-label">Имя заказа</label>
+									<div class='col-lg-9'>
+										<select ng-model="transaction.order.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-repeat="order in orders" ng-value="order.id">{{order.name}}</option>
+										</select>
+									</div>
+								</div>
+								
+					            <div class="form-group">
+						          <label class="col-lg-3 control-label">Дата рождения</label>
+						            <div class="col-lg-9">
+						            	<p class="input-group mydatepicker">
+											 <input ng-model="transaction.date" type="text" class="form-control" datepicker-popup="{{commondatepicker.format}}" ng-model="dt" 
+											 		is-open="commondatepicker.opened1" min-date="1925-09-01" max-date="'2020-06-22'" datepicker-options="commondatepicker.dateOptions" 
+											 		ng-required="true" close-text="Close" />
+										    <span class="input-group-btn">
+										   		<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened1')"><i class="glyphicon glyphicon-calendar"></i></button>
+										   	</span>
+									   	</p>
+									</div>
+						         </div>
+						         				     
+				            <div class="form-group">
+					            <label class="col-lg-3 control-label"></label>
+					              <div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+					              </div>
+					        </div>						          	
+						    </div>				    
+						    </div>
+						    
+				          </form>
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

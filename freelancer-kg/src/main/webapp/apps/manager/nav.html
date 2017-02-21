@@ -1,0 +1,205 @@
+<!-- list -->
+<div id="aside-user" class="clearfix hidden-xs text-center hide">
+      <div dropdown="" class="dropdown wrapper">
+        <a ui-sref="profile" href="profile">
+          <span class="thumb-lg w-auto-folded avatar m-t-sm">
+            <img alt="..." class="img-full" src="../../assets/img/a0.jpg">
+          </span>
+        </a>
+        <a dropdown-toggle="" class="dropdown-toggle hidden-folded" href="" aria-haspopup="true" aria-expanded="false">
+          <span class="clear">
+            <span class="block m-t-sm">
+              <strong class="font-bold text-lt">{{userInfo.name}} {{userInfo.surname}}</strong> 
+              <b class="caret"></b>
+            </span>
+            <span class="text-muted text-xs block">{{userInfo.position.name}}</span>
+          </span>
+        </a>
+      </div>
+      <div class="line dk hidden-folded"></div>
+    </div>
+    
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs"></li>
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-maxcdn icon text-success"></i>
+      <span class="font-bold ptsans">Модель</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Модель</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.model.list">Список модель</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.model.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-link icon text-success"></i>
+      <span class="font-bold ptsans">Заказ</span>
+      
+    </a>
+     <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Заказ</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.order.list">Список заказа</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.order.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li> 
+    </ul> 
+  </li>
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-th-large icon text-success"></i>
+      <span class="font-bold ptsans">Склад</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Склад</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.warehouse.list">Список склада</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.warehouse.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+   <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-users icon text-success"></i>
+      <span class="font-bold ptsans">Персонал</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Персонал</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.staff.list">Список персонала</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.staff.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+   <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-eye icon text-success"></i>
+      <span class="font-bold ptsans">Бухгалтерия</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Бухгалтерия</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.accountant.list">Список бухгалтерии</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.accountant.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-cogs icon text-success"></i>
+      <span class="font-bold ptsans">Клиенты</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Клиенты</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.clients.list">Список клиентов</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.clients.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+  
+  <li>
+    <a href class="auto">      
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="fa fa-cogs icon text-success"></i>
+      <span class="font-bold ptsans">Отчеты</span>
+    </a>
+    <ul class="nav nav-sub dk">
+      <li class="nav-sub-header">
+        <a href>Отчеты</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.report.list">Список отчетов</a>
+      </li>
+      <li ui-sref-active="active">
+        <a ui-sref="manager.report.add">
+          <b class="label bg-info pull-right">+</b>
+          <span>Добавить новый</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  
+   <li class="line dk"></li>
+   
+</ul>
+<!-- / list -->

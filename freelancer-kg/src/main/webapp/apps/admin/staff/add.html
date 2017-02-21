@@ -1,0 +1,111 @@
+<div ng-controller="StaffAddCtrl">
+	<div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+				<div class="panel panel-default">
+					<div class="panel-heading font-bold">Добавить</div>
+					<div class="panel-body">
+
+						<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="create()">
+
+							<div class="row">
+								<div class="col-sm-9">
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Ф.И.О</label>
+										<div class="col-lg-9">
+											<input type="text" placeholder="Введите Ф.И.О" class="form-control" ng-model="staff.name">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Дата рождения</label>
+										<div class="col-lg-9">
+											<p class="input-group mydatepicker">
+												<input ng-model="staff.birthDate" placeholder="Введите дату рождения" type="text" class="form-control"
+													datepicker-popup="{{commondatepicker.format}}" ng-model="dt" is-open="commondatepicker.opened1" datepicker-options="commondatepicker.dateOptions" close-text="Close" /> <span
+													class="input-group-btn">
+													<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened1')">
+														<i class="glyphicon glyphicon-calendar"></i>
+													</button>
+												</span>
+											</p>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Начала работы</label>
+										<div class="col-lg-9">
+											<p class="input-group mydatepicker">
+												<input ng-model="staff.employmentDate" placeholder="Введите начало работы" type="text" class="form-control"
+													datepicker-popup="{{commondatepicker.format}}" ng-model="dt" is-open="commondatepicker.opened2" datepicker-options="commondatepicker.dateOptions" close-text="Close" /> <span
+													class="input-group-btn">
+													<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened2')">
+														<i class="glyphicon glyphicon-calendar"></i>
+													</button>
+												</span>
+											</p>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Дата окончание договора</label>
+										<div class="col-lg-9">
+											<p class="input-group mydatepicker">
+												<input ng-model="staff.employmentEndDate" placeholder="Введите начало работы" type="text" class="form-control"
+													datepicker-popup="{{commondatepicker.format}}" ng-model="dt" is-open="commondatepicker.opened3" datepicker-options="commondatepicker.dateOptions" close-text="Close" /> <span
+													class="input-group-btn">
+													<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened3')">
+														<i class="glyphicon glyphicon-calendar"></i>
+													</button>
+												</span>
+											</p>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Адрес</label>
+										<div class="col-lg-9">
+											<input type="text" placeholder="Введите адрес" class="form-control" ng-model="staff.address">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Мобильный номер</label>
+										<div class="col-lg-9">
+											<input type="text" placeholder="Введите мобильный номер" class="form-control" ng-model="staff.mobilePhone">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Персональный номер</label>
+										<div class="col-lg-9">
+											<input type="text" placeholder="Введите персональный номер" class="form-control" ng-model="staff.personNumber">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label">Паспорт</label>
+										<div class="col-lg-9">
+											<input type="text" placeholder="Введите паспорт" class="form-control" ng-model="staff.passportNumber">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-lg-3 control-label"></label>
+										<div class="col-lg-9">
+											<button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+											<a ui-sref="admin.staff.list" type="#" class="btn btn-s-md btn-default">Назад</a>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

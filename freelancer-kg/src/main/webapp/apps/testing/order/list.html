@@ -1,0 +1,78 @@
+<div ng-controller="OrderListCtrl">
+<div class="bg-light lter b-b wrapper-md">
+  <h1 class="m-n font-thin h3">Заказов</h1>
+</div>
+<div class="wrapper-md">
+  <div class="row">
+    <div ng-repeat="order in orders" class="col-md-4">
+      <div class="panel b-a">
+        <div class="panel-heading no-border bg-success">     
+        <a ui-sref="testing.order.list_order({ id: order.id })"><h4>{{order.name}}</h4></a>     
+        </div>
+        <div class="item m-l-n-xxs m-r-n-xxs">
+          <div ng-init="x = 3" class="top text-right padder m-t-xs w-full">
+            <rating ng-model="x" max="5" state-on="'fa fa-star text-white'" state-off="'fa fa-star-o text-white'"></rating>
+          </div>
+          <div class="center text-center w-full" style="margin-top:-60px">
+      
+          </div>
+          
+        </div>
+        <div class="hbox text-center b-b b-light text-sm">  
+        <a href class="col padder-v text-muted" ng-click="callInfoModal('identity', order.orderedBy.id)">
+            <i class="glyphicon glyphicon-user block m-b-xs fa-2x" style="color:#99FF33;"></i>
+            <span>{{order.orderedBy.name}}</span>
+          </a>        
+          <a href class="col padder-v text-muted b-r b-light">
+           <i class="fa fa-money block m-b-xs fa-2x" style="color:#99FF33;"></i>
+            <span>{{order.price}}{{order.currency.name}}</span>
+          </a>
+           <a href class="col padder-v text-muted b-r b-light" ng-click="callInfoModal('staff', order.createdBy.id)">
+            <i class="icon-user-following block m-b-xs fa-2x" style="color:#99FF33;"></i>
+            <span>{{order.createdBy.name}}</span>
+          </a>
+        </div>
+         <div class="hbox text-center b-b b-light text-sm">  
+          <a href class="col padder-v text-muted b-r b-light">
+          <span class="glyphicon glyphicon-copy block m-b-xs fa-2x" style="color:#99FF33;"><span class="badge up " style="color:#66CC33;">2</span></span>
+            <span>{{order.date |  date:'dd.MM.yyyy'}}</span>
+          </a>
+          <a href class="col padder-v text-muted b-r b-light">
+          <span class="glyphicon glyphicon-ok-sign block m-b-xs fa-2x" style="color:#99FF33;"></span>
+            <span>{{order.dueDate |  date:'dd.MM.yyyy'}}</span>
+          </a>
+          <a href class="col padder-v text-muted">
+          <span class="glyphicon glyphicon-paste icon-white block m-b-xs fa-2x" style="color:#99FF33;"><span class="badge up " style="color:#66CC33;">4</span></span>
+            <span>{{order.orderedBy.name}}</span>
+          </a>
+           </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+<script type="text/ng-template" id="custom/pager">
+<div class="panel-body">
+      <ul class="pager ng-cloak ng-table-pager">
+		<div style="float: left"><li style="float: none"> 
+            <div class="btn-group">
+                <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
+                <button type="button" ng-class="{'active':params.count() == 25}" ng-click="params.count(25)" class="btn btn-default">25</button>
+                <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-default">50</button>
+                <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
+            </div>
+		</li>
+		</div>
+		<div style="float: right">	
+		<li style="float: none" ng-repeat="page in pages" ng-class="{'disabled ': !page.active}" ng-switch="page.type">
+			<a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+			<a ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a> 
+			<a ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+		</li>
+		</div>
+       </ul>
+</div>
+</script>

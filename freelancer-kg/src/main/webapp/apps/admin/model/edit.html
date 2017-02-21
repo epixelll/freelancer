@@ -1,0 +1,105 @@
+<div ng-controller="ModelEditCtrl" class="app-content-body ">
+	<div class="bg-light lter b-b">
+		<div class="wrapper-md ng-binding">
+			<div class="panel panel-default">
+				<div class="panel-heading font-bold">Изменить</div>
+				<div class="panel-body">
+
+					<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="update()">
+
+						<div class="row">
+							<div class="col-sm-9">
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Название</label>
+									<div class="col-lg-9">
+										<input type="text" placeholder="" class="form-control" ng-model="model.name">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Артикул</label>
+									<div class="col-lg-9">
+										<input type="text" placeholder="" class="form-control" ng-model="model.artikul">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Баркод</label>
+									<div class="col-lg-9">
+										<input type="text" placeholder="" class="form-control" ng-model="model.barcode">
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Пол</label>
+									<div class='col-lg-9'>
+										<select ng-model="model.sex.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-selected="model.sex.id == sex.id" ng-repeat="sex in sexs" ng-value="sex.id">{{sex.name}}</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Сезон</label>
+									<div class='col-lg-9'>
+										<select ng-model="model.season.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-selected="model.season.id == season.id" ng-repeat="season in seasons" ng-value="season.id">{{season.name}}</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Возрастная категория</label>
+									<div class='col-lg-9'>
+										<select ng-model="model.ageCategory.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-selected="model.ageCategory.id == ageCategory.id" ng-repeat="ageCategory in ageCategorys" ng-value="ageCategory.id">{{ageCategory.name}}</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Классификация</label>
+									<div class='col-lg-9'>
+										<select ng-model="model.classification.id" ng-required="true" class="form-control" select>
+											<option value="">Выберите...</option>
+											<option ng-selected="model.classification.id == classification.id" ng-repeat="classification in classifications"
+												ng-value="classification.id">{{classification.name}}</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group">
+					            <label class="col-lg-3 control-label">Линейка цветов</label>
+							          <div class="col-lg-8">
+							            <div class="checkbox">
+							              <label class="i-checks">
+							                <input type="checkbox" ng-value="model.isLineColorBased" ng-model="model.isLineColorBased"  name="isLineColorBased">
+							                <i></i>
+							              </label>
+							            </div>
+						         </div>
+						         </div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label"></label>
+									<div class="col-lg-9">
+										<button class="btn btn-sm btn-info" type="submit">Сохранить</button>
+										<a ui-sref="admin.model.list" type="#" class="btn btn-s-md btn-default">Назад</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

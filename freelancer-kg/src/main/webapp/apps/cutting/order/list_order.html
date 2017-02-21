@@ -1,0 +1,76 @@
+<div ng-controller="ListOrderCtrl">
+<!-- content -->
+<div class="row">
+	<div class="col-lg-12">
+		<section class="panel">		
+			<div class="col-lg-12">
+				<div class="bg-default lter b-b col-lg-5 panel-heading">
+					<h1 class="m-n font-thin h3">Список Shifting
+					<a ui-sref="cutting.order.add({ id: order.id })" class="btn btn-rounded btn btn-icon btn-warning" ui-sref="cutting.order.add.html"><i class="fa fa-plus"></i></a>
+				</h1>
+				</div>
+			</div>
+			<div style="clear:both"></div>
+			<div class="progress progress-xs m-b-none dker ">
+            	<div class="progress-bar progress-bar-info" data-toggle="tooltip" data-original-title="50%" style="width: 100%"></div>
+        	</div>
+  			<div class="panel-body">
+  				<!-- <div class="panel panel-info" draggable="true">
+					<div class="panel-heading"> Склад 1 
+						<div style="float:right	">
+							<label class="i-switch bg-info m-t-xs m-r">
+				              	<input type="checkbox" ng-click="toggleTable(1)">
+				              <i></i>
+				            </label>
+			            </div>
+		            </div> -->
+					<div class="toggle_1 ">
+		  				<table ng-table="tableParams" template-pagination="custom/pager" class="table table-striped m-b-none dataTable" show-filter="true">
+		                    <tr ng-repeat="order_stage_shifting in $data" ng-class="{odd: $odd, even: $even}">
+		                    	<td data-title="'#'">{{$index + 1}}.</td>
+		                      <td data-title="'order stage'" sortable="'orderStage.order.name'" filter="{ 'orderStage.order.name': 'text' }">{{order_stage_shifting.orderStage.order.name}}</td>
+		                      <td data-title="'Model'" sortable="'model.name'" filter="{ 'model.name': 'text' }">{{order_stage_shifting.model.name}}</td>
+		                      <td data-title="'color'" sortable="'color.name'" filter="{ 'color.name': 'text' }">{{order_stage_shifting.color.name}}</td>
+		                      <td data-title="'size'" sortable="'size.size'" filter="{ 'size.size': 'text' }">{{order_stage_shifting.size.size}}</td>
+		                      <td data-title="'quantity'" sortable="'order_stage_shifting.quantity'" filter="{ 'stage_shifting.quantity': 'text' }">{{order_stage_shifting.quantity}}</td>
+                              <td data-title="'approved'" class="text-center"><div ng-if="order_stage_shifting.isApproved"><span class="glyphicon glyphicon-ok-sign block m-b-xs fa-2x" style="color:#66CC33;"></span>
+                              <div ng-if="order_stage_shifting.isApproved==null"><span class="glyphicon glyphicon-remove-sign block m-b-xs fa-2x" style="color:#66CC33;"></span></div></td>
+                              <td data-title="'Опции'" class="text-center" style="min-width: 100px">
+	                            	 <a class="btn btn-sm btn-icon btn-warning"ui-sref="cutting.order_stage_shifting.edit({ id: order_stage_shifting.id })"><i class="fa fa-pencil"></i></a>
+	                            	 <a class="btn btn-sm btn-icon btn-danger" ng-click="callDeleteModal('order_stage_shifting', order_stage_shifting.id)"><i class="glyphicon glyphicon-trash"></i></a>
+	                            </td>
+                            </tr>
+		                </table>
+		            </div>
+ 		 		
+			  </div>
+		</section>
+	</div>
+</div>
+<!-- content -->
+</div>
+
+
+<script type="text/ng-template" id="custom/pager">
+      <ul class="pager ng-cloak ng-table-pager">
+		<div style="float: left"><li style="float: none"> 
+            <div class="btn-group">
+                <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
+                <button type="button" ng-class="{'active':params.count() == 25}" ng-click="params.count(25)" class="btn btn-default">25</button>
+                <button type="button" ng-class="{'active':params.count() == 50}" ng-click="params.count(50)" class="btn btn-default">50</button>
+                <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
+            </div>
+		</li>
+		</div>
+		<div style="float: right">	
+		<li style="float: none" ng-repeat="page in pages" ng-class="{'disabled ': !page.active}" ng-switch="page.type">
+			<a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+			<a ng-switch-when="first" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="page" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="more" ng-click="params.page(page.number)" href="">&#8230;</a> 
+			<a ng-switch-when="last" ng-click="params.page(page.number)" href=""><span ng-bind="page.number"></span></a>
+			<a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+		</li>
+		</div>
+       </ul>
+</script>

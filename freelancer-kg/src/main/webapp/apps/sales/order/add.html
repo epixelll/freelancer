@@ -1,0 +1,129 @@
+<div ng-controller="OrderAddCtrl">
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+			      <div class="panel panel-default">
+			        <div class="panel-heading font-bold">Добавить</div>
+			        <div class="panel-body">
+				        
+				    	<form class="bs-example form-horizontal ng-pristine ng-valid" ng-submit="create()">
+				          	
+						<div class="row">
+						    
+					            <div class="col-md-4">					            
+					            <div class="form-group">
+					              <label class="col-lg-3 control-label">Название</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="order.name">
+					              </div>
+					            </div>
+					            </div>
+					            
+					            					            		            
+					            <div class="col-md-4">
+					            <div class="form-group">
+						          <label class="col-lg-3 control-label">Дата</label>
+						            <div class="col-lg-9">
+						            	<p class="input-group mydatepicker">
+											 <input ng-model="order.date" type="text" class="form-control" datepicker-popup="{{commondatepicker.format}}" ng-model="dt" 
+											 		is-open="commondatepicker.opened1" min-date="1925-09-01" max-date="'2020-06-22'" datepicker-options="commondatepicker.dateOptions" 
+											 		ng-required="true" close-text="Close" />
+										    <span class="input-group-btn">
+										   		<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened1')"><i class="glyphicon glyphicon-calendar"></i></button>
+										   	</span>
+									   	</p>
+									</div>
+						         </div>
+						         </div>
+						        						         
+						         
+						         <div class="col-md-4">	
+						         <div class="form-group">
+						          <label class="col-lg-3 control-label">Срок окончания</label>
+						            <div class="col-lg-9">
+						            	<p class="input-group mydatepicker">
+											 <input ng-model="order.dueDate" type="text" class="form-control" datepicker-popup="{{commondatepicker.format}}" ng-model="dt" 
+											 		is-open="commondatepicker.opened2" min-date="1925-09-01" max-date="'2020-06-22'" datepicker-options="commondatepicker.dateOptions" 
+											 		ng-required="true" close-text="Close" />
+										    <span class="input-group-btn">
+										   		<button type="button" class="btn btn-default" ng-click="commondatepicker.open($event, 'opened2')"><i class="glyphicon glyphicon-calendar"></i></button>
+										   	</span>
+									   	</p>
+									</div>
+						         </div>
+						         </div>
+						       	</div>
+						       	
+						       	
+						        <div class="row"> 
+						        <div class="col-md-4">
+					            <div class="form-group">
+						          	<label class="col-lg-3 control-label">Автор заказа</label>
+						            <div class="col-lg-9"> 
+						              <select ng-model="order.orderedBy.id" class="form-control" select required>
+						              	<option value="">Выберите...</option>
+						                <option ng-repeat="identity in identitys" ng-value="identity.id">{{identity.name}}</option>
+						              </select>  
+						            </div>
+						         </div>	
+						         </div>
+						        
+						         
+						         <div class="col-md-4">
+					            
+						            <div class="form-group">
+							          	<label class="col-lg-3 control-label">Валюта</label>
+							            <div class="col-lg-9"> 
+							              <select ng-model="order.currency.id" class="form-control" select required>
+							              	<option value="">Выберите...</option>
+							                <option ng-repeat="currency in currencys" ng-value="currency.id">{{currency.name}}</option>
+							              </select>  
+							            </div>
+							         </div>	
+					            </div>
+					            
+					            
+					            <div class="col-md-4">
+					             <div class="form-group">
+					              <label class="col-lg-3 control-label">Цена</label>
+					              <div class="col-lg-9">
+					                <input type="text" placeholder="" class="form-control" ng-model="order.price">
+					              </div>
+					            </div>
+					            </div>
+					            </div>
+					            <hr>
+					             
+						        <div id="ui-select-container" class="col-lg-8"> 
+									<ui-select ng-model="book.bookType.id" theme="bootstrap" class="col-lg-9"  style="padding:0">
+				    					<ui-select-match  placeholder="sdfgffff" >
+            							{{$select.selected.name}}
+        								</ui-select-match>
+				    					<ui-select-choices repeat="bookType.id as bookType in bookTypes track by $index" refresh="refreshbookTypes($select.search)" refresh-delay="0">
+				      				<div ng-bind-html="bookType.name | highlight: $select.search"></div>
+				    					</ui-select-choices>
+									</ui-select>
+            					</div>
+						         	
+					            					     
+				            	<div class="form-group">
+					            	<label class="col-lg-3 control-label"></label>
+					              	<div class="col-lg-9">
+					                <button class="btn btn-sm btn-info" type="submit" >Сохранить</button>
+					              </div>
+					        	</div>
+					        	
+					        	</form>				          	
+				    
+						    </div>
+						    
+						    
+				          
+						    
+				          
+				        </div>
+				      </div>
+				    </div>
+				</div>
+			</div>
+	

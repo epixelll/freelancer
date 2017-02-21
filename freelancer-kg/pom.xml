@@ -1,0 +1,287 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>kg.enesai</groupId>
+  <artifactId>freelancernsi-kg</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Freelancer NSI KG</name>
+  <url>http://maven.apache.org</url> 
+   
+
+
+	<repositories>
+        <repository>
+            <id>maven2-repository.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
+    <build>
+	 	<finalName>freelancer-kg</finalName>
+	 	<pluginManagement>
+		    <plugins>
+		        <plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+			        <artifactId>maven-compiler-plugin</artifactId>
+			        <version>3.1</version>
+			        <configuration>
+			            <source>1.8</source>
+			            <target>1.8</target>
+			        </configuration>
+			    </plugin>
+			    <plugin>
+			        <groupId>org.liquibase</groupId>
+			        <artifactId>liquibase-maven-plugin</artifactId>
+			        <version>3.4.2</version>
+			        <configuration>                  
+			            <propertyFile>src/main/resources/properties/liquibase.properties</propertyFile>
+			        </configuration> 
+			        <dependencies>
+			            <dependency>
+			                <groupId>org.liquibase.ext</groupId>
+			                <artifactId>liquibase-hibernate4</artifactId>
+			                <version>3.5</version>
+			            </dependency>
+			            <dependency>
+			                <groupId>org.springframework</groupId>
+			                <artifactId>spring-beans</artifactId>
+			                <version>4.1.7.RELEASE</version>
+			            </dependency>
+			            <dependency>
+			                <groupId>org.springframework.data</groupId>
+			                <artifactId>spring-data-jpa</artifactId>
+			                <version>1.7.3.RELEASE</version>
+			            </dependency>
+			        </dependencies>               
+			    </plugin> 
+		    </plugins>
+		</pluginManagement>
+	</build>
+	
+	<properties>
+		<spring.version>4.1.5.RELEASE</spring.version>
+		<jersey.version>2.9</jersey.version>
+		<shiro.version>1.2.3</shiro.version>
+		<aspectj.version>1.5.4</aspectj.version>
+		<hibernate.version>4.3.10.Final</hibernate.version>
+	</properties>
+	
+    <dependencies>
+    	<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.0.1</version>
+		    <scope>provided</scope>
+		</dependency>
+    	
+    	<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+		   <groupId>org.springframework</groupId>
+		   <artifactId>spring-orm</artifactId>
+		   <version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-aop</artifactId> -->
+<!-- 			<version>${spring.version}</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework</groupId> -->
+<!-- 			<artifactId>spring-aspects</artifactId> -->
+<!-- 			<version>${spring.version}</version> -->
+<!-- 		</dependency> -->
+		
+<!-- 		aspectj dependencies to use @AspectJ syntax for Spring AOP -->
+<!-- 		<dependency> -->
+<!-- 	        <groupId>org.aspectj</groupId> -->
+<!-- 	        <artifactId>aspectjrt</artifactId> -->
+<!-- 	        <version>${aspectj.version}</version> -->
+<!-- 	    </dependency> -->
+<!-- 	    <dependency> -->
+<!-- 	        <groupId>org.aspectj</groupId> -->
+<!-- 	        <artifactId>aspectjweaver</artifactId> -->
+<!-- 	        <version>${aspectj.version}</version> -->
+<!-- 	    </dependency> -->
+<!-- 	    <dependency> -->
+<!-- 			<groupId>cglib</groupId> -->
+<!-- 			<artifactId>cglib-nodep</artifactId> -->
+<!-- 			<version>3.1</version> -->
+<!-- 		</dependency> -->
+
+		
+	    
+<!-- shiro -->
+<!-- 	    <dependency> -->
+<!-- 		  <groupId>org.apache.shiro</groupId> -->
+<!-- 		  <artifactId>shiro-aspectj</artifactId> -->
+<!-- 		  <version>1.2.3</version> -->
+<!-- 		</dependency> -->
+    
+    	<dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-core</artifactId>
+		  <version>${shiro.version}</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.apache.shiro</groupId>
+		  <artifactId>shiro-web</artifactId>
+		  <version>${shiro.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+<!-- end shiro -->
+
+
+<!-- jersey -->
+ 		<dependency>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-spring3</artifactId>
+			<version>${jersey.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-web</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>org.glassfish.jersey.ext</groupId>
+			<artifactId>jersey-mvc</artifactId>
+			<version>2.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>2.13</version>
+		</dependency>
+<!-- end jersey -->
+		
+		
+<!-- hibernate -->
+		<dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-core</artifactId>
+		   <version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.1.3.Final</version>
+		</dependency>
+
+<!-- end hibernate -->
+		
+				
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>5.1.34</version> -->
+<!-- 		</dependency> -->
+
+		<dependency>
+		  <groupId>org.postgresql</groupId>
+		  <artifactId>postgresql</artifactId>
+		  <version>9.3-1100-jdbc4</version>
+		</dependency>
+		
+<!-- 		connection pooling with c3p0 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+				
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.4.0</version>
+		</dependency>
+		
+		
+<!-- 		liquibase -->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>3.4.2</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!--             <groupId>org.liquibase.ext</groupId> -->
+<!--             <artifactId>liquibase-hibernate4</artifactId> -->
+<!--             <version>3.5</version> -->
+<!--             <exclusions> -->
+<!-- 				<exclusion> -->
+<!-- 					<artifactId>hibernate-jpa-2.0-api</artifactId> -->
+<!-- 					<groupId>org.hibernate.javax.persistence</groupId> -->
+<!-- 				</exclusion> -->
+<!--             </exclusions> -->
+<!--         </dependency> -->
+		
+		
+<!-- 		Log4j  -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.10</version>
+		</dependency>
+		
+    </dependencies>
+</project>

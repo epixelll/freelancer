@@ -1,0 +1,99 @@
+<style>
+#nakltable{
+	border-spacing:0px !important;
+	border: 1px solid green !important;
+	border-collapse: none !important;
+}
+#nakl>tbody>tr>th, #nakl>tbody>tr>td{
+	border: 1px solid green !important;
+}
+#naklHead{
+	border: 1px solid green !important;
+}
+</style>
+<div>
+ <div class="app-content-body ">
+		<div class="bg-light lter b-b">
+			<div class="wrapper-md ng-binding">
+				<div class="row">
+					<div class="col-sm-6">
+				      <div class="panel panel-default">
+				        <!-- <div class="panel-heading font-bold">Добавить новый договор</div> -->
+				        <div class="panel-body" >				            
+				            <table class="table table-striped m-b-none" id="nakl"  style="border-spacing: 0px;  width:600px" show-filter="false">
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.NAME_SURNAME" | translate}}:</b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"> {{stuff.nameEn+ " " +stuff.surnameEn}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b></b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.nameRu+ " " +stuff.surnameRu}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.BIRTH_DATE2"| translate}}:</b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.birthDate |  date:'dd.mm.yyyy'}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.CURRENT_ADDRESS2"| translate}}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.currAdress}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.PERMANENT_ADDRESS2"| translate}}:</b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.permAdress}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.PHONE_NUMBER2"| translate}}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.phone}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.EMAIL2" | translate }}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.email}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.STUFF_NUMBER2"| translate}}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.stuffNum}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.PASSPORT"| translate}}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.passportNo}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.POSITION"| translate}}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.position}}</td>
+				            	</tr>
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>{{"SECRETARY.STUFF.STATUS"| translate}}: </b></td>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;">{{stuff.status.name}}</td>
+				            	</tr>
+				            	
+				            	</br>
+				            </table>
+				        </div>
+				      </div>
+				    </div>
+				    <div class="col-sm-4">
+				
+				      <div class="panel panel-default">
+				        <!-- <div class="panel-heading font-bold">Добавить новый договор</div> -->
+				        <div class="panel-body" >		
+				    	  <table class="table table-striped m-b-none" id="nakl"  style="border-spacing: 0px;  width:30px	" show-filter="false">
+				            	<tr>
+				            		<td style="border: 1px solid green !important; padding: 8px 12px;"><b>
+				            		
+				            		<img ng-src="../../../file/{{stuff.photo}}" style="max-width: 290px; max-height: 433px; margin: 1px" />
+				            		
+				            		</b></td>
+				            		
+				            	</tr>
+						</table>
+						
+                   	  </div>
+
+						
+						
+				    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
