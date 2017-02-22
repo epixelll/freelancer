@@ -29,7 +29,7 @@ public class PersonVO extends AbstractVO{
 	
 	private Set<SkillVO> professionalSkills;
 	
-	private float jobExperience;
+	private double jobExperience;
 	
 	private Date joinedDate;
 	
@@ -123,11 +123,11 @@ public class PersonVO extends AbstractVO{
 		this.professionalSkills = professionalSkills;
 	}
 
-	public float getJobExperience() {
+	public double getJobExperience() {
 		return jobExperience;
 	}
 
-	public void setJobExperience(float jobExperience) {
+	public void setJobExperience(double jobExperience) {
 		this.jobExperience = jobExperience;
 	}
 

@@ -30,11 +30,11 @@ public class Project extends AbstractEntity {
 	private String description;
 	
 	@Column(name="budget")
-	private float budget;
+	private double budget;
 	
 	@ElementCollection
-	@CollectionTable(name="Attachment", joinColumns=@JoinColumn(name="project_id"))
-	@Column(name="attachment")
+	@CollectionTable(name="project_attachment", joinColumns=@JoinColumn(name="project_id"))
+	@Column(name="name")
 	private Set<String> attachements;
 	
 	@Column(name="project_state")
@@ -73,11 +73,11 @@ public class Project extends AbstractEntity {
 		this.description = description;
 	}
 
-	public float getBudget() {
+	public double getBudget() {
 		return budget;
 	}
 
-	public void setBudget(float budget) {
+	public void setBudget(double budget) {
 		this.budget = budget;
 	}
 

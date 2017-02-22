@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -49,8 +48,7 @@ public class Person extends AbstractEntity{
 	@JoinColumn(name="location_id")
 	private Location location;
 	
-	@Lob
-	@Column(name="f_about_me", length=300)
+	@Column(name="f_about_me", length=600)
 	private String aboutMe;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -64,7 +62,7 @@ public class Person extends AbstractEntity{
 	private Set<Skill> professionalSkills;
 	
 	@Column(name="f_job_experience")
-	private float jobExperience;
+	private double jobExperience;
 	
 	@Temporal(TemporalType.DATE)
 	@Column(name="joined_date")
@@ -161,11 +159,11 @@ public class Person extends AbstractEntity{
 		this.professionalSkills = professionalSkills;
 	}
 
-	public float getJobExperience() {
+	public double getJobExperience() {
 		return jobExperience;
 	}
 
-	public void setJobExperience(float jobExperience) {
+	public void setJobExperience(double jobExperience) {
 		this.jobExperience = jobExperience;
 	}
 

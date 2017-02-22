@@ -11,7 +11,7 @@ public class ProjectVO extends AbstractVO {
 	
 	private String description;
 	
-	private float budget;
+	private double budget;
 	
 	private Set<String> attachements;
 	
@@ -41,11 +41,11 @@ public class ProjectVO extends AbstractVO {
 		this.description = description;
 	}
 
-	public float getBudget() {
+	public double getBudget() {
 		return budget;
 	}
 
-	public void setBudget(float budget) {
+	public void setBudget(double budget) {
 		this.budget = budget;
 	}
 
